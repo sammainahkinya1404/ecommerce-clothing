@@ -3,13 +3,13 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
+      <section className="relative py-20 bg-black text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-orange-800 to-red-700 bg-clip-text text-transparent">
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6">
               Our Story
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-300 leading-relaxed">
               Born from a passion for authentic Kenyan craftsmanship and a vision to share 
               our beautiful culture with the world through fashion.
             </p>
@@ -35,15 +35,15 @@ export default function AboutPage() {
                 ensuring fair wages and supporting communities while preserving traditional 
                 techniques that make each garment unique.
               </p>
-              <div className="bg-orange-50 p-6 rounded-xl border-l-4 border-orange-500">
-                <p className="text-lg font-medium text-orange-800">
+              <div className="bg-gray-100 p-6 rounded-xl border-l-4 border-black">
+                <p className="text-lg font-medium text-black">
                   "Fashion is not just about clothing - it's about culture, community, and creating opportunities."
                 </p>
-                <p className="text-sm text-orange-600 mt-2">- Our Founder</p>
+                <p className="text-sm text-gray-600 mt-2">- Our Founder</p>
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-orange-400 to-red-400 rounded-3xl blur-lg opacity-20"></div>
+              <div className="absolute -inset-4 bg-black rounded-3xl blur-lg opacity-10"></div>
               <img
                 src="/public/images/woman.jpg"
                 alt="Kenyan Artisan at Work"
@@ -65,8 +65,8 @@ export default function AboutPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center border">
+              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl">🤝</span>
               </div>
               <h3 className="text-xl font-bold mb-4 text-gray-800">Community First</h3>
@@ -76,8 +76,8 @@ export default function AboutPage() {
               </p>
             </div>
             
-            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center border">
+              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl">👗</span>
               </div>
               <h3 className="text-xl font-bold mb-4 text-gray-800">Quality Craftsmanship</h3>
@@ -87,8 +87,8 @@ export default function AboutPage() {
               </p>
             </div>
             
-            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center border">
+              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl">🌍</span>
               </div>
               <h3 className="text-xl font-bold mb-4 text-gray-800">Sustainable Fashion</h3>
@@ -113,7 +113,7 @@ export default function AboutPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
                 1
               </div>
               <h3 className="text-lg font-bold mb-3 text-gray-800">Design</h3>
@@ -123,7 +123,7 @@ export default function AboutPage() {
             </div>
             
             <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
                 2
               </div>
               <h3 className="text-lg font-bold mb-3 text-gray-800">Source</h3>
@@ -133,7 +133,7 @@ export default function AboutPage() {
             </div>
             
             <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
                 3
               </div>
               <h3 className="text-lg font-bold mb-3 text-gray-800">Craft</h3>
@@ -143,7 +143,7 @@ export default function AboutPage() {
             </div>
             
             <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
                 4
               </div>
               <h3 className="text-lg font-bold mb-3 text-gray-800">Deliver</h3>
@@ -156,32 +156,32 @@ export default function AboutPage() {
       </section>
 
       {/* Impact Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+      <section className="py-20 bg-black text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-8">Making a Difference</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <div>
                 <div className="text-4xl font-bold mb-2">50+</div>
-                <p className="text-orange-100">Local Artisans Supported</p>
+                <p className="text-gray-300">Local Artisans Supported</p>
               </div>
               <div>
                 <div className="text-4xl font-bold mb-2">1000+</div>
-                <p className="text-orange-100">Happy Customers</p>
+                <p className="text-gray-300">Happy Customers</p>
               </div>
               <div>
                 <div className="text-4xl font-bold mb-2">5</div>
-                <p className="text-orange-100">Years of Excellence</p>
+                <p className="text-gray-300">Years of Excellence</p>
               </div>
             </div>
-            <p className="text-xl mb-8 opacity-90 leading-relaxed">
+            <p className="text-xl mb-8 text-gray-300 leading-relaxed">
               Every purchase you make helps sustain traditional craftsmanship and 
               supports families across Kenya. Together, we're preserving culture 
               while building a sustainable future.
             </p>
             <a
               href="/products"
-              className="inline-block px-10 py-4 bg-white text-orange-600 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+              className="inline-block px-10 py-4 bg-white text-black rounded-xl font-bold text-lg shadow-xl hover:bg-gray-200 transform hover:-translate-y-1 transition-all duration-300"
             >
               Shop Our Collection
             </a>
