@@ -1,4 +1,5 @@
 // src/app/page.js (homepage)
+import Link from 'next/link';
 import Hero from "@/components/Hero";
 import CategoryCard from "@/components/CategoryCard";
 
@@ -21,12 +22,12 @@ export default function HomePage() {
             <CategoryCard
               title="Women"
               image="/images/Modern.jpeg"
-              link="/products/women"
+              link="/products"
             />
             <CategoryCard
               title="Children"
               image="/images/CasualSet.jpeg"
-              link="/products/kids"
+              link="/products"
             />
           </div>
         </div>
@@ -82,11 +83,11 @@ export default function HomePage() {
             Join hundreds of satisfied customers who choose quality, authenticity, and style.
           </p>
           
-            <a href="/products"
+          <Link href="/products"
             className="inline-block px-10 py-4 bg-white text-orange-600 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
           >
             Start Shopping Today
-          </a>
+          </Link>
         </div>
       </section>
     </>

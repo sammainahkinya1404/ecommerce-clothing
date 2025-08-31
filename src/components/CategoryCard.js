@@ -1,16 +1,53 @@
 // src/components/CategoryCard.js
+'use client';
+import Link from 'next/link';
+import { useState } from 'react';
+
 export default function CategoryCard({ title, image, link }) {
+  const [imageError, setImageError] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
+
+  const handleImageError = () => {
+    console.log(`Failed to load image: ${image}`);
+    setImageError(true);
+    setImageLoading(false);
+  };
+
+  const handleImageLoad = () => {
+    setImageLoading(false);
+  };
+
   return (
-    
-      <a href={link}
+    <Link href={link}
       className="group relative overflow-hidden rounded-3xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
     >
       <div className="relative h-80 overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
+        {/* Loading state */}
+        {imageLoading && (
+          <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+            <div className="text-gray-400">Loading...</div>
+          </div>
+        )}
+        
+        {/* Error fallback with your color scheme */}
+        {imageError ? (
+          <div className="w-full h-full bg-gradient-to-t from-orange-600 to-red-600 flex items-center justify-center">
+            <div className="text-center text-white">
+              <div className="text-4xl mb-2">👗</div>
+              <div className="text-lg font-bold">{title} Collection</div>
+            </div>
+          </div>
+        ) : (
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            onError={handleImageError}
+            onLoad={handleImageLoad}
+            loading="lazy"
+          />
+        )}
+        
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
         
         {/* Category Badge */}
@@ -34,6 +71,6 @@ export default function CategoryCard({ title, image, link }) {
           <span className="ml-2">→</span>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }

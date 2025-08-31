@@ -1,9 +1,18 @@
-// src/app/products/page.js
+
 'use client';
-import { useState } from 'react';
+import Image from 'next/image';// src/app/products/page.js
+import Link from 'next/link';
+
+import { useState, useEffect } from 'react';
 
 export default function ProductsPage() {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [mounted, setMounted] = useState(false);
+
+  // Fix hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Sample product data - replace with your actual products
   const products = [
@@ -79,50 +88,84 @@ export default function ProductsPage() {
     ? products 
     : products.filter(product => product.category === activeFilter);
 
+  // Don't render until mounted to prevent hydration issues
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-white">
+        <section className="py-16 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+          <div className="container mx-auto px-6 text-center">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4">Our Collection</h1>
+            <p className="text-xl opacity-90 max-w-2xl mx-auto">Loading...</p>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Page Header */}
-      <section className="py-16 bg-black text-white">
+      {/* Page Header - Updated to match homepage style */}
+      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+          <h1 className="text-4xl lg:text-5xl font-bold mb-6">
             Our Collection
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl opacity-90 max-w-2xl mx-auto">
             Discover authentic Kenyan fashion for women and children
           </p>
         </div>
       </section>
 
-      {/* Filter Tabs */}
+      {/* Quick Category Links - Updated styling
+      <section className="py-12 bg-gradient-to-b from-white to-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="flex justify-center space-x-6">
+            <Link 
+              href="/products"
+              className="inline-block px-8 py-4 bg-white text-orange-600 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border-2 border-orange-600"
+            >
+              Shop Women →
+            </Link>
+            <Link 
+              href="/products"
+              className="inline-block px-8 py-4 bg-white text-red-600 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border-2 border-red-600"
+            >
+              Shop Kids →
+            </Link>
+          </div>
+        </div>
+      </section> */}
+
+      {/* Filter Tabs - Updated styling */}
       <section className="py-8 bg-white border-b">
         <div className="container mx-auto px-6">
-          <div className="flex justify-center space-x-1">
+          <div className="flex justify-center space-x-2">
             <button
               onClick={() => setActiveFilter('all')}
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+              className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 transform hover:-translate-y-1 ${
                 activeFilter === 'all'
-                  ? 'bg-black text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 shadow-md'
               }`}
             >
               All Products
             </button>
             <button
               onClick={() => setActiveFilter('women')}
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+              className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 transform hover:-translate-y-1 ${
                 activeFilter === 'women'
-                  ? 'bg-black text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 shadow-md'
               }`}
             >
               Women
             </button>
             <button
               onClick={() => setActiveFilter('children')}
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+              className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 transform hover:-translate-y-1 ${
                 activeFilter === 'children'
-                  ? 'bg-black text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 shadow-md'
               }`}
             >
               Children
@@ -131,25 +174,28 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* Products Grid */}
-      <section className="py-16 bg-white">
+      {/* Products Grid - Updated with better image handling */}
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
               >
-                <div className="relative overflow-hidden">
-                  <img
+                <div className="relative h-64 overflow-hidden">
+                  <Image
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    unoptimized
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                   
                   {/* Quick View Button */}
-                  <button className="absolute top-4 right-4 bg-white bg-opacity-90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black hover:text-white">
+                  <button className="absolute top-4 right-4 bg-white bg-opacity-90 p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-600 hover:to-red-600 hover:text-white shadow-lg">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -165,10 +211,10 @@ export default function ProductsPage() {
                     {product.description}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-xl font-bold text-black">
+                    <span className="text-xl font-bold bg-gradient-to-r from-orange-700 to-red-700 bg-clip-text text-transparent">
                       KSh {product.price.toLocaleString()}
                     </span>
-                    <button className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors duration-300 text-sm font-medium">
+                    <button className="px-6 py-3 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-xl font-bold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                       Add to Cart
                     </button>
                   </div>
@@ -179,26 +225,27 @@ export default function ProductsPage() {
           
           {filteredProducts.length === 0 && (
             <div className="text-center py-16">
+              <div className="text-6xl mb-4">🛍️</div>
               <p className="text-xl text-gray-500">No products found in this category.</p>
             </div>
           )}
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="py-16 bg-black text-white">
+      {/* Newsletter Section - Updated styling */}
+      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6">Stay Updated</h2>
+          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
             Be the first to know about new collections and exclusive offers
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="px-4 py-3 rounded-lg text-black flex-1"
+              className="px-6 py-4 rounded-xl text-black flex-1 shadow-lg"
             />
-            <button className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-200 transition-colors duration-300">
+            <button className="px-8 py-4 bg-white text-orange-600 rounded-xl font-bold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
               Subscribe
             </button>
           </div>
