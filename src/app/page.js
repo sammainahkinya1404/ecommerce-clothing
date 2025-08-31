@@ -20,12 +20,12 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <CategoryCard
               title="Women"
-              image="/public/images/woman.jpg"
+              image="/images/Modern.jpeg"
               link="/products/women"
             />
             <CategoryCard
               title="Children"
-              image="/public/images/kid.jpg"
+              image="/images/CasualSet.jpeg"
               link="/products/kids"
             />
           </div>

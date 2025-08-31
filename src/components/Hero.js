@@ -67,7 +67,7 @@ export default function Hero() {
             <div className="absolute -inset-4 bg-gradient-to-r from-orange-400 to-red-400 rounded-3xl blur-lg opacity-30 group-hover:opacity-40 transition-opacity duration-300"></div>
             <div className="relative bg-white rounded-3xl p-2 shadow-2xl">
               <img
-                src="/public/images/woman.jpg"
+                src="/images/Ankara.jpeg"
                 alt="Kenyan Fashion Model"
                 className="w-full h-96 lg:h-[500px] object-cover rounded-2xl"
               />

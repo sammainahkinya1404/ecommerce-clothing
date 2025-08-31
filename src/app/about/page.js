@@ -37,7 +37,7 @@ export default function AboutPage() {
               </p>
               <div className="bg-gray-100 p-6 rounded-xl border-l-4 border-black">
                 <p className="text-lg font-medium text-black">
-                  "Fashion is not just about clothing - it's about culture, community, and creating opportunities."
+    &quot;Fashion is not just about clothing - it&apos;s about culture, community, and creating opportunities.&quot;
                 </p>
                 <p className="text-sm text-gray-600 mt-2">- Our Founder</p>
               </div>
@@ -45,12 +45,13 @@ export default function AboutPage() {
             <div className="relative">
               <div className="absolute -inset-4 bg-black rounded-3xl blur-lg opacity-10"></div>
               <img
-                src="/public/images/woman.jpg"
+                src="/images/Ankara.jpeg"
                 alt="Kenyan Artisan at Work"
                 className="relative w-full h-96 object-cover rounded-2xl shadow-xl"
               />
             </div>
           </div>
+          
         </div>
       </section>
 

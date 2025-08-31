@@ -13,7 +13,7 @@ export default function ProductsPage() {
       name: "Traditional Wrap Dress",
       price: 2500,
       category: "women",
-      image: "/images/Traditional Wrap Dress.jpeg",
+      image: "/images/TraditionalDress.jpeg",
       description: "Elegant wrap dress with traditional Kenyan patterns"
     },
     {
@@ -21,7 +21,7 @@ export default function ProductsPage() {
       name: "Modern Kikoy Top",
       price: 1800,
       category: "women",
-      image: "/images/Modern Kikoy Top.jpeg",
+      image: "/images/Modern.jpeg",
       description: "Contemporary top featuring authentic Kikoy fabric"
     },
     {
@@ -29,7 +29,7 @@ export default function ProductsPage() {
       name: "Ankara Maxi Dress",
       price: 3200,
       category: "women",
-      image: "/images/Ankara Maxi Dress.jpeg",
+      image: "/images/Ankara.jpeg",
       description: "Stunning maxi dress in vibrant Ankara print"
     },
     {
@@ -37,7 +37,7 @@ export default function ProductsPage() {
       name: "Casual Blouse",
       price: 2000,
       category: "women",
-      image: "/images/Casual Blouse.jpeg",
+      image: "/images/Casual.jpeg",
       description: "Comfortable everyday blouse with subtle Kenyan accents"
     },
     // Children's Products
@@ -46,7 +46,7 @@ export default function ProductsPage() {
       name: "Kids Safari Shirt",
       price: 1200,
       category: "children",
-      image: "/images/Kids Safari Shirt.jpeg",
+      image: "/images/KidsSafari.jpeg",
       description: "Fun safari-themed shirt perfect for little adventurers"
     },
     {
@@ -54,7 +54,7 @@ export default function ProductsPage() {
       name: "Traditional Kids Dress",
       price: 1500,
       category: "children",
-      image: "/images/Traditional Kids Dress.jpeg",
+      image: "/images/TraditionalDress.jpeg",
       description: "Beautiful traditional dress for special occasions"
     },
     {
@@ -62,7 +62,7 @@ export default function ProductsPage() {
       name: "Casual Kids Set",
       price: 1800,
       category: "children",
-      image: "/images/Casual Kids Set.jpeg",
+      image: "/images/CasualSet.jpeg",
       description: "Comfortable two-piece set for everyday wear"
     },
     {
@@ -70,7 +70,7 @@ export default function ProductsPage() {
       name: "Festival Outfit",
       price: 2200,
       category: "children",
-      image: "/images/Festival Outfit.jpeg",
+      image: "/images/CasualSet.jpeg",
       description: "Colorful outfit perfect for cultural celebrations"
     }
   ];
