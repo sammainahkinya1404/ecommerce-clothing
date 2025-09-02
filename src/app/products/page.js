@@ -116,25 +116,7 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* Quick Category Links - Updated styling
-      <section className="py-12 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-center space-x-6">
-            <Link 
-              href="/products"
-              className="inline-block px-8 py-4 bg-white text-orange-600 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border-2 border-orange-600"
-            >
-              Shop Women →
-            </Link>
-            <Link 
-              href="/products"
-              className="inline-block px-8 py-4 bg-white text-red-600 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border-2 border-red-600"
-            >
-              Shop Kids →
-            </Link>
-          </div>
-        </div>
-      </section> */}
+    
 
       {/* Filter Tabs - Updated styling */}
       <section className="py-8 bg-white border-b">
